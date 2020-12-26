@@ -9,14 +9,6 @@ const Game = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Appbar>
-        <Appbar.Content title={
-          <View style={styles.appBarTitle}>
-            <Avatar.Image source={require('../../assets/images/whistle.png')} size={36} />
-            <Title>Gwizdek</Title>
-          </View>
-        } />
-      </Appbar>
       <View style={styles.container}>
         <Card>
           <Card.Cover source={require('../../assets/images/starships.webp')}/>
@@ -55,10 +47,6 @@ const Game = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1
-  },
-  appBarTitle: {
-    flexDirection: 'row',
-    alignItems: 'center'
   },
   container: {
     paddingHorizontal: 16,
