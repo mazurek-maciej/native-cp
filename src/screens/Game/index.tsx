@@ -1,14 +1,19 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { Title, Text, Appbar, Card, Button, Avatar } from 'react-native-paper';
 import { useSelector } from 'react-redux';
+import { SafeAreaView, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { Title, Text, Card, Button, Avatar, useTheme } from 'react-native-paper';
+
 import { RootState } from '../../store/state';
 
 const Game = () => {
+  const theme = useTheme();
   const {leftPlayer, rightPlayer} = useSelector((state: RootState) => state.game);
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={{
+      flex: 1,
+      backgroundColor: theme.colors.background
+    }}>
       <View style={styles.container}>
         <Card>
           <Card.Cover source={require('../../assets/images/starships.webp')}/>
@@ -45,9 +50,6 @@ const Game = () => {
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1
-  },
   container: {
     paddingHorizontal: 16,
     paddingTop: 32,
