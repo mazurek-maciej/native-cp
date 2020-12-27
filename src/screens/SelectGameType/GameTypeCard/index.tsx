@@ -11,7 +11,7 @@ interface Props {
   handleChooseGameType: (gameType: GameType) => void
 }
 
-const CardComponent = ({ gameType, handleChooseGameType }: Props) => {
+const GameTypeCard = ({ gameType, handleChooseGameType }: Props) => {
 
   const handleOnPress = () => handleChooseGameType(gameType)
 
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CardComponent;
+export default GameTypeCard;

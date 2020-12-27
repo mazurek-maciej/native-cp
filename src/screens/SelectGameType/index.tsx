@@ -5,7 +5,7 @@ import { switchGameType } from '../../store/game/actions';
 
 import { useTheme, Text, Title } from 'react-native-paper';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import CardComponent from './CardComponent';
+import GameTypeCard from './GameTypeCard';
 
 import { GameType } from '../../store/models/GameType';
 
@@ -30,8 +30,8 @@ const SelectGameType = ({ navigation }: Props) => {
       </View>
 
       <View style={styles.cardsContainer}>
-        <CardComponent gameType={GameType.people} handleChooseGameType={handleOnCardPress} />
-        <CardComponent gameType={GameType.starships} handleChooseGameType={handleOnCardPress} />
+        <GameTypeCard gameType={GameType.people} handleChooseGameType={handleOnCardPress} />
+        <GameTypeCard gameType={GameType.starships} handleChooseGameType={handleOnCardPress} />
       </View>
     </SafeAreaView>
   )
