@@ -13,12 +13,12 @@ interface Props {
 
 const PlayerAvatar = ({ player, side }: Props) => {
   const imageSrc = side === Side.left
-    ? require('../../../assets/images/playerOneAvatar.png')
-    : require('../../../assets/images/playerTwoAvatar.png');
+    ? require('../../assets/images/playerOneAvatar.png')
+    : require('../../assets/images/playerTwoAvatar.png');
 
   return (
     <View style={styles.playerContainer}>
-      <Avatar.Image source={imageSrc} />
+      <Avatar.Image source={imageSrc} accessibilityRole={'image'} />
       <Text>{player.name}</Text>
       <Title>{player.score}</Title>
     </View>
