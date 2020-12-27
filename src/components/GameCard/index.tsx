@@ -32,18 +32,18 @@ const GameCard = ({ gameType, status, cards }: Props) => {
       </Card.Content>
     ) : (
       <View style={{ padding: 16 }}>
-        <ActivityIndicator />
+        <ActivityIndicator testID={'indicator'} />
       </View>
     )
   )
 
   const cardImage = gameType === GameType.people
-    ? require('../../../assets/images/people.jpg')
-    : require('../../../assets/images/starships.webp')
+    ? require('../../assets/images/people.jpg')
+    : require('../../assets/images/starships.webp')
   
   return (
     <Card>
-      <Card.Cover source={cardImage}/>
+      <Card.Cover testID={'card-img'} source={cardImage}/>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         {cards?.leftCard && cards.rightCard ? 
         (
