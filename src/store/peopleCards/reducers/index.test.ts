@@ -3,7 +3,7 @@ import { ACTION_TYPE } from "../actions/types";
 
 import { PeopleCardsState } from "./types";
 
-import validCard from '../../../_mocks_/validPersonTwoResponse.json';
+const validCard = require('../../../_mocks_/validPersonTwoResponse.json');
 
 describe('People Cards reducer', () => {
   it ('should return initial state', () => {

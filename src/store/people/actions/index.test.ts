@@ -2,10 +2,10 @@ import { apiMiddleware } from "redux-api-middleware";
 import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
 import thunk from "redux-thunk";
-import { generateGetPeopleUrl, getPeopleAction } from ".";
+import { getPeopleAction } from ".";
 import { initialState } from '../reducers/index';
 
-import validPeopleResponse from '../../../_mocks_/validPersonOneResponse.json';
+const validPeopleResponse = require('../../../_mocks_/validPersonOneResponse.json');
 
 import { ACTION_TYPE } from "./types";
 

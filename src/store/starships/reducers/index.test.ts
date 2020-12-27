@@ -4,7 +4,7 @@ import { StatusOfAPICall } from "../../game/models/StatusOfApiCall";
 import { ACTION_TYPE } from "../actions/types";
 import { StarshipsState } from "./types";
 
-import validStarshipsResponse from '../../../_mocks_/validStarshipsResponse.json';
+const validStarshipsResponse = require('../../../_mocks_/validStarshipsResponse.json');
 
 describe('Starships reducer', () => {
   it ('should return initial state', () => {

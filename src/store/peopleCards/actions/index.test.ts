@@ -8,7 +8,7 @@ import { ACTION_TYPE } from './types';
 import { ACTION_TYPE as PEOPLE_TYPE } from '../../people/actions/types';
 import { ACTION_TYPE as GAME_ACTION } from '../../game/actions/types';
 
-import firstPerson from '../../../_mocks_/validPersonOneResponse.json'
+const firstPerson = require('../../../_mocks_/validPersonOneResponse.json')
 import { RootState } from '../../state';
 import { AnyAction } from 'redux';
 import { configureStore } from '../..';

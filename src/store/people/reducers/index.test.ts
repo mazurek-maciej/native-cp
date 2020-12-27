@@ -4,7 +4,7 @@ import { StatusOfAPICall } from "../../game/models/StatusOfApiCall";
 import { ACTION_TYPE } from "../actions/types";
 import { PeopleState } from "./types";
 
-import validPeopleResponse from '../../../_mocks_/validPersonOneResponse.json';
+const validPeopleResponse = require('../../../_mocks_/validPersonOneResponse.json');
 
 describe('People reducer', () => {
   it ('should return initial state', () => {

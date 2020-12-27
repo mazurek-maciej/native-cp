@@ -1,7 +1,7 @@
 import { initialState, starshipsCardsReducer as reducer } from ".";
 import { ACTION_TYPE } from "../actions/types";
 
-import validCards from '../../../_mocks_/validStarshipsResponse.json';
+const validCards = require('../../../_mocks_/validStarshipsResponse.json');
 import { StarshipsCardsState } from "./types";
 
 describe('People Cards reducer', () => {

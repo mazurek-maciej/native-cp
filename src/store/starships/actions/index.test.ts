@@ -7,7 +7,7 @@ import { initialState } from "../reducers";
 
 import { ACTION_TYPE } from "./types";
 
-import validStarshipsResponse from '../../../_mocks_/validStarshipsResponse.json';
+const validStarshipsResponse = require('../../../_mocks_/validStarshipsResponse.json');
 
 const middlewares = [thunk, apiMiddleware];
 const mockStore = configureMockStore(middlewares)
