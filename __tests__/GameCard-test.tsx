@@ -79,4 +79,12 @@ describe('GameCard component', () => {
     expect(massLabel).toBeNull();
     expect(crewLabel).toBeNull();
   });
+
+  it('should render people image when GameType is people', () => {
+    const { getByRole } = render(<GameCard {...props} />);
+    const urlToImage = '../../../src/assets/images/people.jpg';
+    const imgUrl = getByRole('image').props.source.testUri;
+
+    expect(imgUrl).toBe(urlToImage);
+  });
 });

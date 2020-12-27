@@ -43,7 +43,7 @@ const GameCard = ({ gameType, status, cards }: Props) => {
   
   return (
     <Card>
-      <Card.Cover testID={'card-img'} source={cardImage}/>
+      <Card.Cover source={cardImage} accessibilityRole={'image'} />
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         {cards?.leftCard && cards.rightCard ? 
         (
