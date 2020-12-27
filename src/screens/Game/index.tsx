@@ -1,15 +1,16 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { clearPeopleCardsAction, storePeopleCardsAction } from '../../store/peopleCards/actions';
+import { clearStarshipsCards, storeStarshipsCards } from '../../store/starshipsCards/actions';
+
+import GameCard from './GameCard';
 import { SafeAreaView, StyleSheet, View, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Title, Text, Button, Avatar, useTheme } from 'react-native-paper';
+import { Title, Text, Button, Avatar, FAB, useTheme } from 'react-native-paper';
 
 import { RootState } from '../../store/state';
-import { storePeopleCardsAction } from '../../store/peopleCards/actions';
-import { storeStarshipsCards } from '../../store/starshipsCards/actions';
-import GameCard from './GameCard';
 import { GameType } from '../../store/models/GameType';
 import { StatusOfAPICall } from '../../store/game/models/StatusOfApiCall';
-
+import { switchGameType } from '../../store/game/actions';
 
 const Game = () => {
   const theme = useTheme();
@@ -22,6 +23,15 @@ const Game = () => {
 
   const dispatchPeopleCards = () => dispatch(storePeopleCardsAction())
   const dispatchStarshipsCards = () => dispatch(storeStarshipsCards())
+
+  const handleChangeCards = () => {
+    if (gameType === GameType.people) {
+      dispatch(clearPeopleCardsAction());
+      return dispatch(switchGameType(GameType.starships))
+    }
+    dispatch(clearStarshipsCards())
+    return dispatch(switchGameType(GameType.people))
+  }
 
   const renderWinnerName = useCallback(() => {
     if (isDraw) {
@@ -64,6 +74,12 @@ const Game = () => {
           <Button mode="contained" disabled={isFetching}>ROLL</Button>
         </TouchableOpacity>
       </View>
+      <FAB
+        icon={'swap-horizontal'}
+        label={'Change cards'}
+        style={styles.fab}
+        onPress={handleChangeCards}
+      />
     </SafeAreaView>
   )
 }
@@ -82,6 +98,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 16
+  },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 16,
   }
 })
 
