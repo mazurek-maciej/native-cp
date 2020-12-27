@@ -3,8 +3,6 @@ import { Provider } from 'react-redux';
 import { configureStore } from './store';
 import RootRouting from './routes';
 
-
-
 const store = configureStore();
 
 const App = () => {
