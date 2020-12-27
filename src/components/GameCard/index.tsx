@@ -3,13 +3,13 @@ import React from "react";
 import { View, ActivityIndicator } from "react-native";
 import { Card, Text, Title } from "react-native-paper";
 
-import { StatusOfAPICall } from "../../../store/game/models/StatusOfApiCall";
-import { GameType } from "../../../store/models/GameType";
-import { People } from "../../../store/people/models/People";
-import { PeopleCardsState } from "../../../store/peopleCards/reducers/types";
-import { Starship } from "../../../store/starships/models/Starship";
-import { StarshipsCardsState } from "../../../store/starshipsCards/reducers/types";
-import { Side } from "../../../store/game/models/Side";
+import { StatusOfAPICall } from "../../store/game/models/StatusOfApiCall";
+import { GameType } from "../../store/models/GameType";
+import { People } from "../../store/people/models/People";
+import { PeopleCardsState } from "../../store/peopleCards/reducers/types";
+import { Starship } from "../../store/starships/models/Starship";
+import { StarshipsCardsState } from "../../store/starshipsCards/reducers/types";
+import { Side } from "../../store/game/models/Side";
 
 interface Props {
   gameType: GameType;

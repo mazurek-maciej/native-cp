@@ -5,7 +5,7 @@ import { switchGameType } from '../../store/game/actions';
 
 import { useTheme, Text, Title } from 'react-native-paper';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import GameTypeCard from './GameTypeCard';
+import GameTypeCard from '../../components/GameTypeCard';
 
 import { GameType } from '../../store/models/GameType';
 

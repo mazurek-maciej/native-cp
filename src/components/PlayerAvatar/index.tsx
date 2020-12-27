@@ -3,8 +3,8 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Avatar, Text, Title } from "react-native-paper";
 
-import { Player } from "../../../store/game/models/Player";
-import { Side } from "../../../store/game/models/Side";
+import { Player } from "../../store/game/models/Player";
+import { Side } from "../../store/game/models/Side";
 
 interface Props {
   player: Player;

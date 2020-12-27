@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearPeopleCardsAction, storePeopleCardsAction } from '../../store/peopleCards/actions';
 import { clearStarshipsCardsAction, storeStarshipsCardsAction } from '../../store/starshipsCards/actions';
 
-import GameCard from './GameCard';
-import PlayerAvatar from './PlayerAvatar';
+import GameCard from '../../components/GameCard';
+import PlayerAvatar from '../../components/PlayerAvatar';
 import { SafeAreaView, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Title, Button, FAB, useTheme } from 'react-native-paper';
 

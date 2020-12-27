@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 import { Avatar, Text } from 'react-native-paper';
 
-import { GameType } from '../../../store/models/GameType';
+import { GameType } from '../../store/models/GameType';
 
 interface Props {
   gameType: GameType;
