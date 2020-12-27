@@ -40,10 +40,14 @@ const GameCard = ({ gameType, status, cards }: Props) => {
       </View>
     )
   )
+
+  const cardImage = gameType === GameType.people
+    ? require('../../../assets/images/people.jpg')
+    : require('../../../assets/images/starships.webp')
   
   return (
     <Card>
-      <Card.Cover source={require('../../../assets/images/starships.webp')}/>
+      <Card.Cover source={cardImage}/>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         {cards?.leftCard && cards.rightCard ? 
         (
