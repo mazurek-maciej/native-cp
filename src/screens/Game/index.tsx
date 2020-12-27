@@ -24,6 +24,10 @@ const Game = () => {
   const dispatchPeopleCards = () => dispatch(storePeopleCardsAction())
   const dispatchStarshipsCards = () => dispatch(storeStarshipsCards())
 
+  const handleGameRoll = () => {
+    gameType === GameType.people ? dispatchPeopleCards() : dispatchStarshipsCards();
+  }
+
   const handleChangeCards = () => {
     if (gameType === GameType.people) {
       dispatch(clearPeopleCardsAction());
@@ -70,7 +74,7 @@ const Game = () => {
             <Title>{rightPlayer.score}</Title>
           </View>
         </View>
-        <TouchableOpacity onPress={dispatchPeopleCards} disabled={isFetching}>
+        <TouchableOpacity onPress={handleGameRoll} disabled={isFetching}>
           <Button mode="contained" disabled={isFetching}>ROLL</Button>
         </TouchableOpacity>
       </View>
