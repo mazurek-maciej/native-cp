@@ -4,13 +4,15 @@ import { clearPeopleCardsAction, storePeopleCardsAction } from '../../store/peop
 import { clearStarshipsCards, storeStarshipsCards } from '../../store/starshipsCards/actions';
 
 import GameCard from './GameCard';
+import PlayerAvatar from './PlayerAvatar';
 import { SafeAreaView, StyleSheet, View, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Title, Text, Button, Avatar, FAB, useTheme } from 'react-native-paper';
+import { Title, Button, FAB, useTheme } from 'react-native-paper';
 
 import { RootState } from '../../store/state';
 import { GameType } from '../../store/models/GameType';
 import { StatusOfAPICall } from '../../store/game/models/StatusOfApiCall';
 import { switchGameType } from '../../store/game/actions';
+import { Side } from '../../store/game/models/Side';
 
 const Game = () => {
   const theme = useTheme();
@@ -60,24 +62,18 @@ const Game = () => {
           <GameCard cards={starshipsCards} gameType={gameType} status={starshipsStatus} />
         }
         <View style={styles.playersContainer}>
-          <View style={styles.playerContainer}>
-            <Avatar.Image source={require('../../assets/images/playerOneAvatar.png')} />
-            <Text>{leftPlayer.name}</Text>
-            <Title>{leftPlayer.score}</Title>
-          </View>
+          <PlayerAvatar player={leftPlayer} side={Side.left} />
 
           {isFetching ? <ActivityIndicator/> : renderWinnerName()}
 
-          <View style={styles.playerContainer}>
-            <Avatar.Image source={require('../../assets/images/playerTwoAvatar.png')} />
-            <Text>{rightPlayer.name}</Text>
-            <Title>{rightPlayer.score}</Title>
-          </View>
+          <PlayerAvatar player={rightPlayer} side={Side.right} />
         </View>
+
         <TouchableOpacity onPress={handleGameRoll} disabled={isFetching}>
           <Button mode="contained" disabled={isFetching}>ROLL</Button>
         </TouchableOpacity>
       </View>
+
       <FAB
         icon={'swap-horizontal'}
         label={'Change cards'}
