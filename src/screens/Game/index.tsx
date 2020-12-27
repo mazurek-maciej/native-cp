@@ -5,7 +5,7 @@ import { clearStarshipsCards, storeStarshipsCards } from '../../store/starshipsC
 
 import GameCard from './GameCard';
 import PlayerAvatar from './PlayerAvatar';
-import { SafeAreaView, StyleSheet, View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { SafeAreaView, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { Title, Button, FAB, useTheme } from 'react-native-paper';
 
 import { RootState } from '../../store/state';
@@ -64,7 +64,7 @@ const Game = () => {
         <View style={styles.playersContainer}>
           <PlayerAvatar player={leftPlayer} side={Side.left} />
 
-          {isFetching ? <ActivityIndicator/> : renderWinnerName()}
+          {isFetching ? null : renderWinnerName()}
 
           <PlayerAvatar player={rightPlayer} side={Side.right} />
         </View>
