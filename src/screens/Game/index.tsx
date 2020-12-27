@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearPeopleCardsAction, storePeopleCardsAction } from '../../store/peopleCards/actions';
-import { clearStarshipsCards, storeStarshipsCards } from '../../store/starshipsCards/actions';
+import { clearStarshipsCardsAction, storeStarshipsCardsAction } from '../../store/starshipsCards/actions';
 
 import GameCard from './GameCard';
 import PlayerAvatar from './PlayerAvatar';
@@ -24,7 +24,7 @@ const Game = () => {
     ({ peopleStatus: state.people.status, starshipsStatus: state.starships.status }));
 
   const dispatchPeopleCards = () => dispatch(storePeopleCardsAction())
-  const dispatchStarshipsCards = () => dispatch(storeStarshipsCards())
+  const dispatchStarshipsCards = () => dispatch(storeStarshipsCardsAction())
 
   const handleGameRoll = () => {
     gameType === GameType.people ? dispatchPeopleCards() : dispatchStarshipsCards();
@@ -35,7 +35,7 @@ const Game = () => {
       dispatch(clearPeopleCardsAction());
       return dispatch(switchGameType(GameType.starships))
     }
-    dispatch(clearStarshipsCards())
+    dispatch(clearStarshipsCardsAction())
     return dispatch(switchGameType(GameType.people))
   }
 

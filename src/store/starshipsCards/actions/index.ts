@@ -4,7 +4,7 @@ import { GetStarshipsActionSuccessPayload } from "../../starships/actions/types"
 import { ACTION_TYPE as GAME_ACTION_TYPE } from "../../game/actions/types";
 import { ACTION_TYPE, StarshipsCardsAction, StarshipsCardsStoreCardsActionPayload } from "./types";
 
-export const storeStarshipsCards = () =>
+export const storeStarshipsCardsAction = () =>
   (dispatch: Dispatch) => dispatch(getStarshipsAction()).then(({ payload }) => {
     const min = Math.ceil(0);
     const max = Math.floor(9);
@@ -39,6 +39,6 @@ export const storeStarshipsCards = () =>
     console.log(err)
   })
 
-export const clearStarshipsCards = () => ({
+export const clearStarshipsCardsAction = () => ({
   type: ACTION_TYPE.CLEAR_STARSHIPS_CARDS
 })

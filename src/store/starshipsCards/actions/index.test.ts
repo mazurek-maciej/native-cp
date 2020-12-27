@@ -3,7 +3,7 @@ import fetchMock from 'fetch-mock';
 import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store';
 import { apiMiddleware } from "redux-api-middleware";
 import thunk, { ThunkDispatch } from "redux-thunk";
-import { clearStarshipsCards, storeStarshipsCards } from ".";
+import { clearStarshipsCardsAction, storeStarshipsCardsAction } from ".";
 import { configureStore } from "../..";
 
 import { RootState } from "../../state";
@@ -45,7 +45,7 @@ describe('Starships Cards store actions', () => {
       { type: ACTION_TYPE.STORE_ERROR_STARSHIPS_CARDS }
     ]
 
-    return store.dispatch(storeStarshipsCards()).then(() => {
+    return store.dispatch(storeStarshipsCardsAction()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     })
   })
@@ -53,6 +53,6 @@ describe('Starships Cards store actions', () => {
   it('should handle CLEAR_STARSHIPS_CARDS', () => {
     const expectedAction = { type: ACTION_TYPE.CLEAR_STARSHIPS_CARDS }
 
-    expect(clearStarshipsCards()).toEqual(expectedAction)
+    expect(clearStarshipsCardsAction()).toEqual(expectedAction)
   })
 })
