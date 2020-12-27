@@ -16,10 +16,10 @@ const GameTypeCard = ({ gameType, handleChooseGameType }: Props) => {
   const handleOnPress = () => handleChooseGameType(gameType)
 
   const imageType = gameType === GameType.people ?
-    require('../../../assets/images/people.jpg') : require('../../../assets/images/starships.webp')
+    require('../../assets/images/people.jpg') : require('../../assets/images/starships.webp')
 
   return (
-    <TouchableOpacity style={styles.cardAvatarContainer} onPress={handleOnPress}>
+    <TouchableOpacity style={styles.cardAvatarContainer} onPress={handleOnPress} testID={'container'}>
       <Avatar.Image source={imageType} size={124} />
       <Text style={styles.cardAvatarText}>{gameType}</Text>
     </TouchableOpacity>
