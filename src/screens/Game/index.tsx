@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SafeAreaView, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { Title, Text, Card, Button, Avatar, useTheme } from 'react-native-paper';
+import { Title, Text, Button, Avatar, useTheme } from 'react-native-paper';
 
 import { RootState } from '../../store/state';
 import { storePeopleCardsAction } from '../../store/peopleCards/actions';
@@ -9,17 +9,27 @@ import { storeStarshipsCards } from '../../store/starshipsCards/actions';
 import GameCard from './GameCard';
 import { GameType } from '../../store/models/GameType';
 
+
 const Game = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  const { leftPlayer, rightPlayer, gameType } = useSelector((state: RootState) => state.game);
+  const { leftPlayer, rightPlayer, gameType, winnerId, isDraw } = useSelector((state: RootState) => state.game);
   const { starshipsCards, peopleCards } = useSelector((state: RootState) => state);
   const { starshipsStatus, peopleStatus } = useSelector((state: RootState) =>
     ({ peopleStatus: state.people.status, starshipsStatus: state.starships.status }));
 
   const dispatchPeopleCards = () => dispatch(storePeopleCardsAction())
   const dispatchStarshipsCards = () => dispatch(storeStarshipsCards())
+
+  const renderWinnerName = useCallback(() => {
+    if (isDraw) {
+      return <Title style={{ color: theme.colors.error }}>DRAW</Title>
+    } else if (winnerId === leftPlayer.id) {
+      return <Title style={{ color: theme.colors.accent }}>{leftPlayer.name} scored!</Title>
+    }
+    return <Title style={{ color: theme.colors.accent }}>{rightPlayer.name} scored!</Title>
+  }, [isDraw, winnerId])
 
   return (
     <SafeAreaView style={{
@@ -38,7 +48,9 @@ const Game = () => {
             <Text>{leftPlayer.name}</Text>
             <Title>{leftPlayer.score}</Title>
           </View>
-          <Text>Player 1 scored</Text>
+
+          {renderWinnerName()}
+
           <View style={styles.playerContainer}>
             <Avatar.Image source={require('../../assets/images/playerTwoAvatar.png')} />
             <Text>{rightPlayer.name}</Text>
