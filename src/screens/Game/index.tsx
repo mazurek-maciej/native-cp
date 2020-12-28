@@ -93,8 +93,12 @@ const Game = () => {
         </View>
 
         <TouchableOpacity onPress={handleGameRoll} disabled={isFetching}>
-          <Button mode="contained" disabled={isFetching} loading={isFetching}>
-            ROLL
+          <Button
+            mode="contained"
+            disabled={isFetching}
+            loading={isFetching}
+            icon="rotate-right">
+            ROLL {gameType}
           </Button>
         </TouchableOpacity>
       </View>

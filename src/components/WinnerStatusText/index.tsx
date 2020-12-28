@@ -21,7 +21,9 @@ const WinnerStatusText = ({
 }: Props) => {
   const theme = useTheme();
 
-  if (isFetching) return null;
+  if (isFetching) {
+    return null;
+  }
 
   if (isDraw) {
     return <Title style={{ color: theme.colors.error }}>DRAW</Title>;

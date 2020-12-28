@@ -23,7 +23,7 @@ export const storePeopleCardsAction = () => (dispatch: Dispatch) =>
       const leftCardIsNan = isNaN(leftCardMass);
       const rightCardIsNan = isNaN(rightCardMass);
 
-    if (leftCardIsNan && rightCardIsNan) {
+      if (leftCardIsNan && rightCardIsNan) {
         dispatch({ type: GAME_ACTION_TYPE.GAME_DRAW });
       } else if (leftCardMass === rightCardMass) {
         dispatch({ type: GAME_ACTION_TYPE.GAME_DRAW });
@@ -34,8 +34,7 @@ export const storePeopleCardsAction = () => (dispatch: Dispatch) =>
       } else {
         const hasLeftCardBiggerMass = leftCardMass > rightCardMass;
 
-
-      hasLeftCardBiggerMass
+        hasLeftCardBiggerMass
           ? dispatch({ type: GAME_ACTION_TYPE.SCORE_LEFT_PLAYER })
           : dispatch({ type: GAME_ACTION_TYPE.SCORE_RIGHT_PLAYER });
       }
