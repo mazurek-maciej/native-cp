@@ -1,5 +1,6 @@
 import React from 'react';
-import { Title, useTheme } from 'react-native-paper';
+import { StyleSheet } from 'react-native';
+import { Title, Text, useTheme } from 'react-native-paper';
 
 import { Player } from "../../store/game/models/Player";
 
@@ -24,7 +25,14 @@ const WinnerStatusText = ({ leftPlayer, rightPlayer, isFetching, isDraw, winnerI
     return <Title style={{ color: theme.colors.accent }}>{rightPlayer.name} scored!</Title>
   }
 
-  return null;
+  return <Text style={styles.infoText}>Press roll button to start the game!</Text>
 }
+
+const styles = StyleSheet.create({
+  infoText: {
+    maxWidth: 140,
+    textAlign: 'center'
+  }
+})
 
 export default WinnerStatusText;
