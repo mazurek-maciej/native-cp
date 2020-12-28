@@ -1,12 +1,13 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearPeopleCardsAction, storePeopleCardsAction } from '../../store/peopleCards/actions';
 import { clearStarshipsCardsAction, storeStarshipsCardsAction } from '../../store/starshipsCards/actions';
 
 import GameCard from '../../components/GameCard';
 import PlayerAvatar from '../../components/PlayerAvatar';
+import WinnerStatusText from '../../components/WinnerStatusText';
 import { SafeAreaView, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { Title, Button, FAB, useTheme } from 'react-native-paper';
+import { Button, FAB, useTheme } from 'react-native-paper';
 
 import { RootState } from '../../store/state';
 import { GameType } from '../../store/models/GameType';
@@ -39,15 +40,6 @@ const Game = () => {
     return dispatch(switchGameType(GameType.people))
   }
 
-  const renderWinnerName = useCallback(() => {
-    if (isDraw) {
-      return <Title style={{ color: theme.colors.error }}>DRAW</Title>
-    } else if (winnerId === leftPlayer.id) {
-      return <Title style={{ color: theme.colors.accent }}>{leftPlayer.name} scored!</Title>
-    }
-    return <Title style={{ color: theme.colors.accent }}>{rightPlayer.name} scored!</Title>
-  }, [isDraw, winnerId])
-
   const isFetching = peopleStatus === StatusOfAPICall.FETCHING || starshipsStatus === StatusOfAPICall.FETCHING;
 
   return (
@@ -64,7 +56,7 @@ const Game = () => {
         <View style={styles.playersContainer}>
           <PlayerAvatar player={leftPlayer} side={Side.left} />
 
-          {isFetching ? null : renderWinnerName()}
+          <WinnerStatusText leftPlayer={leftPlayer} rightPlayer={rightPlayer} isDraw={isDraw} isFetching={isFetching} winnerId={winnerId} />
 
           <PlayerAvatar player={rightPlayer} side={Side.right} />
         </View>
