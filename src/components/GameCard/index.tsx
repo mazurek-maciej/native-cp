@@ -30,7 +30,7 @@ const GameCard = ({ gameType, status, cards }: Props) => {
       </Card.Content>
     ) : (
       <View style={{ padding: 16 }}>
-        <ActivityIndicator testID={'indicator'} />
+        <ActivityIndicator testID={'indicator'} color={'#fff'} />
       </View>
     );
 

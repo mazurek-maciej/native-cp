@@ -7,8 +7,8 @@ import { Player } from '../../store/game/models/Player';
 interface Props {
   leftPlayer: Player;
   rightPlayer: Player;
-  isDraw: boolean;
   isFetching: boolean;
+  isDraw?: boolean;
   winnerId?: number;
 }
 
