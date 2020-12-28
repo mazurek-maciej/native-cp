@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render, waitFor } from '@testing-library/react-native';
 
 import Game from '../src/screens/Game';
 
@@ -125,4 +125,29 @@ describe('Game screen', () => {
 
     expect(fab).toBeDefined();
   });
+
+  it('should switch cards after press fab button', async () => {
+    const initialGameType = store.getState().game.gameType;
+    const component = (
+      <Provider store={store}>
+        <Game />
+      </Provider>
+    );
+
+    const { findByText } = render(component);
+    const fab = await findByText(/change cards/i);
+    const initialRollBtn = await findByText(`ROLL ${initialGameType}`);
+
+    expect(initialRollBtn).toBeDefined();
+
+    fireEvent.press(fab);
+
+    await waitFor(() => {
+      const newRollBtn = store.getState().game.gameType;
+
+      expect(newRollBtn).toBeDefined();
+    })
+
+
+  })
 });
