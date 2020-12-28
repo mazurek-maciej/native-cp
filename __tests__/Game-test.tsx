@@ -7,6 +7,8 @@ import Game from '../src/screens/Game';
 
 import { configureStore } from '../src/store';
 
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+
 describe('Game screen', () => {
   const store = configureStore();
 
