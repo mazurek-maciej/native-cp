@@ -1,4 +1,4 @@
-import { People } from "../../people/models/People";
+import { People } from '../../people/models/People';
 
 export interface PeopleCardsState {
   leftCard?: People;

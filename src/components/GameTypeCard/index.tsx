@@ -8,33 +8,37 @@ import { GameType } from '../../store/models/GameType';
 
 interface Props {
   gameType: GameType;
-  handleChooseGameType: (gameType: GameType) => void
+  handleChooseGameType: (gameType: GameType) => void;
 }
 
 const GameTypeCard = ({ gameType, handleChooseGameType }: Props) => {
+  const handleOnPress = () => handleChooseGameType(gameType);
 
-  const handleOnPress = () => handleChooseGameType(gameType)
-
-  const imageType = gameType === GameType.people ?
-    require('../../assets/images/people.jpg') : require('../../assets/images/starships.webp')
+  const imageType =
+    gameType === GameType.people
+      ? require('../../assets/images/people.jpg')
+      : require('../../assets/images/starships.webp');
 
   return (
-    <TouchableOpacity style={styles.cardAvatarContainer} onPress={handleOnPress} testID={'container'}>
+    <TouchableOpacity
+      style={styles.cardAvatarContainer}
+      onPress={handleOnPress}
+      testID={'container'}>
       <Avatar.Image source={imageType} size={124} />
       <Text style={styles.cardAvatarText}>{gameType}</Text>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   cardAvatarContainer: {
     paddingHorizontal: 16,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   cardAvatarText: {
     marginTop: 8,
-    textTransform: 'uppercase'
-  }
-})
+    textTransform: 'uppercase',
+  },
+});
 
 export default GameTypeCard;

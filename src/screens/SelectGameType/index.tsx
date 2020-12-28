@@ -10,7 +10,7 @@ import GameTypeCard from '../../components/GameTypeCard';
 import { GameType } from '../../store/models/GameType';
 
 interface Props {
-  navigation: StackNavigationProp<any, 'SelectGameType'>
+  navigation: StackNavigationProp<any, 'SelectGameType'>;
 }
 
 const SelectGameType = ({ navigation }: Props) => {
@@ -18,34 +18,40 @@ const SelectGameType = ({ navigation }: Props) => {
   const dispatch = useDispatch();
 
   const handleOnCardPress = (gameType: GameType) => {
-    dispatch(switchGameType(gameType))
-    return navigation.navigate('Game')
-  }
+    dispatch(switchGameType(gameType));
+    return navigation.navigate('Game');
+  };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.background}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <View style={styles.titleContainer}>
         <Title>Choose Cards</Title>
         <Text>Select which cards you want to play with</Text>
       </View>
 
       <View style={styles.cardsContainer}>
-        <GameTypeCard gameType={GameType.people} handleChooseGameType={handleOnCardPress} />
-        <GameTypeCard gameType={GameType.starships} handleChooseGameType={handleOnCardPress} />
+        <GameTypeCard
+          gameType={GameType.people}
+          handleChooseGameType={handleOnCardPress}
+        />
+        <GameTypeCard
+          gameType={GameType.starships}
+          handleChooseGameType={handleOnCardPress}
+        />
       </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   cardsContainer: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   titleContainer: {
     alignItems: 'center',
-    paddingVertical: 32
-  }
-})
+    paddingVertical: 32,
+  },
+});
 
 export default SelectGameType;

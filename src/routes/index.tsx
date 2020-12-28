@@ -2,7 +2,11 @@ import React from 'react';
 import { Appearance, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Provider as PaperProvider, DefaultTheme, DarkTheme } from 'react-native-paper';
+import {
+  Provider as PaperProvider,
+  DefaultTheme,
+  DarkTheme,
+} from 'react-native-paper';
 import { Theme } from 'react-native-paper/lib/typescript/types';
 import Game from '../screens/Game';
 import SelectGameType from '../screens/SelectGameType';
@@ -13,19 +17,20 @@ const RootRouting = () => {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      primary: '#ffb74d'
-    }
-  }
+      primary: '#ffb74d',
+    },
+  };
 
   const darkTheme: Theme = {
     ...DarkTheme,
     colors: {
       ...DarkTheme.colors,
-      primary: '#ffb74d'
-    }
-  }
+      primary: '#ffb74d',
+    },
+  };
 
-  const themeInIos = Appearance.getColorScheme() === 'dark' ? darkTheme : lightTheme
+  const themeInIos =
+    Appearance.getColorScheme() === 'dark' ? darkTheme : lightTheme;
 
   const Stack = createStackNavigator();
 
@@ -35,15 +40,14 @@ const RootRouting = () => {
         <Stack.Navigator
           initialRouteName="SelectGameType"
           screenOptions={{
-            header: (props) => <NavigationBar {...props}/>
-          }}
-        >
+            header: (props) => <NavigationBar {...props} />,
+          }}>
           <Stack.Screen name="Game" component={Game} />
           <Stack.Screen name="SelectGameType" component={SelectGameType} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
-  )
+  );
 };
 
 export default RootRouting;

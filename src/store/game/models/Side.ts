@@ -1,4 +1,4 @@
 export enum Side {
   left = 'leftCard',
-  right = 'rightCard'
-};
+  right = 'rightCard',
+}

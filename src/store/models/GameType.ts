@@ -1,4 +1,4 @@
 export enum GameType {
   people = 'people',
-  starships = 'starships'
+  starships = 'starships',
 }

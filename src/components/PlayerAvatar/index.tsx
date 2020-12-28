@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { StyleSheet, View } from "react-native";
-import { Avatar, Text, Title } from "react-native-paper";
+import { StyleSheet, View } from 'react-native';
+import { Avatar, Text, Title } from 'react-native-paper';
 
-import { Player } from "../../store/game/models/Player";
-import { Side } from "../../store/game/models/Side";
+import { Player } from '../../store/game/models/Player';
+import { Side } from '../../store/game/models/Side';
 
 interface Props {
   player: Player;
@@ -12,9 +12,10 @@ interface Props {
 }
 
 const PlayerAvatar = ({ player, side }: Props) => {
-  const imageSrc = side === Side.left
-    ? require('../../assets/images/playerOneAvatar.png')
-    : require('../../assets/images/playerTwoAvatar.png');
+  const imageSrc =
+    side === Side.left
+      ? require('../../assets/images/playerOneAvatar.png')
+      : require('../../assets/images/playerTwoAvatar.png');
 
   return (
     <View style={styles.playerContainer}>
@@ -22,13 +23,13 @@ const PlayerAvatar = ({ player, side }: Props) => {
       <Text>{player.name}</Text>
       <Title>{player.score}</Title>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   playerContainer: {
-    alignItems: 'center'
-  }
-})
+    alignItems: 'center',
+  },
+});
 
 export default PlayerAvatar;

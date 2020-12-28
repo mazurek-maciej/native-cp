@@ -1,11 +1,11 @@
-import { GameType } from "../../models/GameType";
-import { Player } from "../models/Player";
+import { GameType } from '../../models/GameType';
+import { Player } from '../models/Player';
 
 export interface GameState {
   leftPlayer: Player;
   rightPlayer: Player;
-  gameType: GameType
+  gameType: GameType;
   userSelectedGameType: boolean;
-  winnerId?: number; 
+  winnerId?: number;
   isDraw?: boolean;
 }
