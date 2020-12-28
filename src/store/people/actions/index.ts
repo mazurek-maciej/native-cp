@@ -1,5 +1,5 @@
 import { createAction } from "redux-api-middleware";
-import { URL_PEOPLE } from "../../../constants/config";
+import { URL_PEOPLE } from "../../../api/constants/config";
 import { PeopleState } from "../reducers/types";
 import { ACTION_TYPE, GetPeopleActiondMeta, GetPeopleActionPayload, GetPeopleActionSuccessPayload } from "./types";
 

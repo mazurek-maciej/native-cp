@@ -1,5 +1,5 @@
 import { createAction } from "redux-api-middleware";
-import { URL_STARSHIPS } from "../../../constants/config";
+import { URL_STARSHIPS } from "../../../api/constants/config";
 import { StarshipsState } from "../reducers/types";
 import { ACTION_TYPE, GetStarshipsActiondMeta, GetStarshipsActionPayload, GetStarshipsActionSuccessPayload } from "./types";
 
