@@ -1,15 +1,15 @@
 import React from 'react';
-import { Provider as PaperProvider } from 'react-native-paper';
-import { SafeAreaView, Text, StatusBar } from 'react-native';
+import { Provider } from 'react-redux';
+import { configureStore } from './store';
+import RootRouting from './routes';
+
+const store = configureStore();
 
 const App = () => {
   return (
-    <PaperProvider>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Text>Hello World</Text>
-      </SafeAreaView>
-    </PaperProvider>
+    <Provider store={store}>
+      <RootRouting />
+    </Provider>
   );
 };
 
